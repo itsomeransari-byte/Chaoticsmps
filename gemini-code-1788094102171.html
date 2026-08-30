@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MacroDroid Automation Store</title>
+  <style>
+    :root {
+      --bg-color: #0b0f19;
+      --card-bg: #151c2c;
+      --card-border: #222f47;
+      --accent-color: #00f2fe;
+      --accent-gradient: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --code-bg: #0d1322;
+      --price-tag: #22c55e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      padding: 30px 15px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    .instructions-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 35px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .instructions-card h2 {
+      font-size: 1.4rem;
+      color: var(--accent-color);
+      margin-bottom: 15px;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    .step-item {
+      background: var(--code-bg);
+      padding: 15px;
+      border-radius: 10px;
+      border-left: 3px solid var(--accent-color);
+    }
+
+    .step-item h3 {
+      font-size: 1rem;
+      margin-bottom: 5px;
+      color: #fff;
+    }
+
+    .step-item p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .macro-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .macro-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      transition: all 0.25s ease-in-out;
+    }
+
+    .macro-card:hover {
+      border-color: var(--accent-color);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 242, 254, 0.15);
+    }
+
+    .macro-details {
+      flex: 1;
+    }
+
+    .macro-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .macro-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .macro-meta {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .macro-code-tag {
+      background: var(--code-bg);
+      border: 1px solid var(--card-border);
+      color: var(--accent-color);
+      font-family: monospace;
+      font-size: 0.82rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .price-badge {
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid var(--price-tag);
+      color: var(--price-tag);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .buy-btn {
+      background: var(--accent-gradient);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 12px 22px;
+      border-radius: 10px;
+      white-space: nowrap;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      box-shadow: 0 4px 15px rgba(0, 114, 255, 0.3);
+    }
+
+    .buy-btn:hover {
+      opacity: 0.9;
+      transform: scale(1.03);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 650px) {
+      .macro-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .buy-btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>MacroDroid Automation Store</h1>
+      <p>Premium Android Macros Configured & Built for Performance</p>
+    </header>
+
+    <!-- Installation Instructions -->
+    <div class="instructions-card">
+      <h2>How to Download & Run Macros</h2>
+      <div class="steps-grid">
+        <div class="step-item">
+          <h3>1. Install MacroDroid</h3>
+          <p>Download and install MacroDroid from the Google Play Store on your mobile device.</p>
+        </div>
+        <div class="step-item">
+          <h3>2. Send Purchase Request</h3>
+          <p>Click the "Purchase Macro" button to auto-generate an email request with the product code and price.</p>
+        </div>
+        <div class="step-item">
+          <h3>3. Complete Payment & Import</h3>
+          <p>Pay 100 PKR via account details received in reply, then open your received macro file inside MacroDroid.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Macros List -->
+    <div class="macro-list">
+
+      <!-- Macro 1 -->
+      <div class="macro-card">
+        <div class="macro-details">
+          <div class="macro-title">1. Auto Call Receiver</div>
+          <div class="macro-desc">Automatically answers incoming calls instantly without requiring screen touches[cite: 1].</div>
+          <div class="macro-meta">
+            <span class="macro-code-tag">Product Key: MACRO-CALLREC-GUID-82013343</span>
+            <span class="price-badge">100 PKR</span>
+          </div>
+        </div>
+        <a class="buy-btn" href="mailto:itsomeransari@gmail.com?subject=I%20want%20to%20purchase%20your%20Auto%20call%20reciver%20macro&body=Hello%2C%0A%0AI%20want%20to%20purchase%20your%20macro%3A%20Auto%20call%20reciver.%0APrice%3A%20100%20PKR%0AProduct%20Key%3A%20MACRO-CALLREC-GUID-82013343.%0A%0APlease%20send%20me%20your%20payment%20details%20(Easypaisa%2FJazzCash%2FBank)%20to%20complete%20the%20100%20PKR%20payment.%20Thanks!">
+          Purchase Macro
+        </a>
+      </div>
+
+      <!-- Macro 2 -->
+      <div class="macro-card">
+        <div class="macro-details">
+          <div class="macro-title">2. Smart Notifications</div>
+          <div class="macro-desc">Provides voice alerts for charging types, battery percentages, low battery warnings, and periodic time announcements.</div>
+          <div class="macro-meta">
+            <span class="macro-code-tag">Product Key: MACRO-SMARTNOTIF-GUID-47780723</span>
+            <span class="price-badge">100 PKR</span>
+          </div>
+        </div>
+        <a class="buy-btn" href="mailto:itsomeransari@gmail.com?subject=I%20want%20to%20purchase%20your%20Smart%20Notifications%20macro&body=Hello%2C%0A%0AI%20want%20to%20purchase%20your%20macro%3A%20Smart%20Notifications.%0APrice%3A%20100%20PKR%0AProduct%20Key%3A%20MACRO-SMARTNOTIF-GUID-47780723.%0A%0APlease%20send%20me%20your%20payment%20details%20(Easypaisa%2FJazzCash%2FBank)%20to%20complete%20the%20100%20PKR%20payment.%20Thanks!">
+          Purchase Macro
+        </a>
+      </div>
+
+      <!-- Macro 3 -->
+      <div class="macro-card">
+        <div class="macro-details">
+          <div class="macro-title">3. Random Greetings</div>
+          <div class="macro-desc">Greets you with customized spoken phrases each time you unlock your device to create a voice assistant experience.</div>
+          <div class="macro-meta">
+            <span class="macro-code-tag">Product Key: MACRO-GREETINGS-GUID-63340445</span>
+            <span class="price-badge">100 PKR</span>
+          </div>
+        </div>
+        <a class="buy-btn" href="mailto:itsomeransari@gmail.com?subject=I%20want%20to%20purchase%20your%20Random%20Greetings%20macro&body=Hello%2C%0A%0AI%20want%20to%20purchase%20your%20macro%3A%20Random%20Greetings.%0APrice%3A%20100%20PKR%0AProduct%20Key%3A%20MACRO-GREETINGS-GUID-63340445.%0A%0APlease%20send%20me%20your%20payment%20details%20(Easypaisa%2FJazzCash%2FBank)%20to%20complete%20the%20100%20PKR%20payment.%20Thanks!">
+          Purchase Macro
+        </a>
+      </div>
+
+    </div>
+
+    <footer>
+      <p>&copy; 2026 MacroDroid Automation Store. Contact: itsomeransari@gmail.com</p>
+    </footer>
+  </div>
+
+</body>
+</html>
